@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 
-import 'package:intl/intl.dart"
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 class InputPage extends StatefulWidget{
   const InputPage({super.key});
@@ -128,12 +128,12 @@ class _InputPageState extends State<InputPage>{
       initialDate: new DateTime.now(), 
       firstDate: new DateTime(2015), 
       lastDate: new DateTime(2025),
-      locale: Locale(ES)
+      
       );
     if(fechaSeleccionada != null)
     {
       setState(() {
-        _fecha = DateFormat,
+        _fecha = DateFormat('dd-YY-mm').format(fechaSeleccionada);
         _controllerFecha.text = _fecha;
       });
     }
