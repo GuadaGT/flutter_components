@@ -3,6 +3,7 @@ import 'package:flutter_components/src/pages/Home_page.dart';
 import 'package:flutter_components/src/pages/alert_page.dart';
 import 'package:flutter_components/src/pages/avatar_page.dart';
 import 'package:flutter_components/src/pages/card_page.dart';
+import 'package:flutter_components/src/pages/input_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,12 @@ class MyApp extends StatelessWidget {
         'alert': (BuildContext context) => AlertPage(),
         'avatar': (BuildContext context) => AvatarPage(),
         'card': (BuildContext context) => CardPage(),
+        'inputs': (BuildContext context) => InputPage(),
       },
+      onGenerateRoute: (RouteSettings setting)
+      {
+        return MaterialPageRoute(builder: (context)=> AlertPage());
+      }
     );
   }
 }
