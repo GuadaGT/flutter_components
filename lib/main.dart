@@ -4,6 +4,7 @@ import 'package:flutter_components/src/pages/alert_page.dart';
 import 'package:flutter_components/src/pages/avatar_page.dart';
 import 'package:flutter_components/src/pages/card_page.dart';
 import 'package:flutter_components/src/pages/input_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Componentes App',
+       localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+  supportedLocales: [
+    Locale('en'), // English
+    Locale('es'), // Spanish
+  ],
       initialRoute: 'home',
       routes: <String, WidgetBuilder>{
         'home': (BuildContext context) => HomePageFinal(),

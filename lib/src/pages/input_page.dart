@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 
+import 'package:intl/intl.dart"
 
 class InputPage extends StatefulWidget{
   const InputPage({super.key});
@@ -10,6 +12,9 @@ class _InputPageState extends State<InputPage>{
   String _nombre= '';
   int _contador = 0;
   String _email= '';
+
+  String _fecha= '';
+  TextEditingController _controllerFecha = new TextEditingController();
 
   Widget build(BuildContext context)
   {
@@ -24,12 +29,17 @@ class _InputPageState extends State<InputPage>{
           Divider(),
           _inputEmail(),
           Divider(),
+          _inputpassword(),
+          Divider(),
+          _inputFecha(context),
+          Divider(),
           _mostrarDatos()
           ],
       ),
     );
   }
-  Widget _inputNombre(){
+  Widget _inputNombre()
+  {
       return TextField(
         textCapitalization: TextCapitalization.sentences,
         decoration: InputDecoration(
@@ -52,14 +62,16 @@ class _InputPageState extends State<InputPage>{
         );
   }
 
-  Widget _mostrarDatos(){
+  Widget _mostrarDatos()
+  {
     return ListTile(
       title: Text(_nombre),
       subtitle: Text(_email),
     );
   }
 
-  Widget _inputEmail(){
+  Widget _inputEmail()
+  {
     return TextField(
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
@@ -77,5 +89,53 @@ class _InputPageState extends State<InputPage>{
         });
       }
     );
+  }
+
+  Widget _inputpassword()
+  {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+        border:OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        hintText: 'Escribe tu contraseña',
+        icon: Icon(Icons.password)
+      ),
+    );
+  }
+
+  Widget _inputFecha(BuildContext context)
+  {
+    return TextField(
+      enableInteractiveSelection: false,
+      controller: _controllerFecha,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        hintText: '',
+        label: Text('Fecha'),
+        icon: Icon(Icons.calendar_month)
+      ),
+      onTap: ()
+      {
+        _selectDate(context);
+      },
+    );
+  }
+
+  void _selectDate(BuildContext context) async
+  {
+    DateTime? fechaSeleccionada = await showDatePicker(
+      context: context, 
+      initialDate: new DateTime.now(), 
+      firstDate: new DateTime(2015), 
+      lastDate: new DateTime(2025),
+      locale: Locale(ES)
+      );
+    if(fechaSeleccionada != null)
+    {
+      setState(() {
+        _fecha = DateFormat,
+        _controllerFecha.text = _fecha;
+      });
+    }
   }
 }
