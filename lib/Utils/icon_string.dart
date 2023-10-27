@@ -6,6 +6,7 @@ final _icons = <String, IconData>{
   'folder_open': Icons.folder_open,
   'inputs': Icons.input,
   'modals': Icons.ad_units_outlined,
+  'pasar': Icons.account_tree,
 };
 
 Icon getIcon(String nombreIcono){

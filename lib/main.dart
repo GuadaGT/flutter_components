@@ -4,6 +4,7 @@ import 'package:flutter_components/src/pages/alert_page.dart';
 import 'package:flutter_components/src/pages/avatar_page.dart';
 import 'package:flutter_components/src/pages/card_page.dart';
 import 'package:flutter_components/src/pages/input_page.dart';
+import 'package:flutter_components/src/pages/pasar_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_components/src/pages/modal_page.dart';
 
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
         'card': (BuildContext context) => CardPage(),
         'inputs': (BuildContext context) => InputPage(),
         'modals': (BuildContext context) => ModalPage(),
+        'pasar': (BuildContext context) => ScreenPage(),
+      
       },
       onGenerateRoute: (RouteSettings setting)
       {
