@@ -12,9 +12,9 @@ class _InputPageState extends State<InputPage>{
   String _nombre= '';
   int _contador = 0;
   String _email= '';
-
   String _fecha= '';
   TextEditingController _controllerFecha = new TextEditingController();
+  List<String> _cosas= ['Cosa01','Cosa02','Cosa03','Cosa04','Cosa05'];
 
   Widget build(BuildContext context)
   {
@@ -32,6 +32,8 @@ class _InputPageState extends State<InputPage>{
           _inputpassword(),
           Divider(),
           _inputFecha(context),
+          Divider(),
+          _crearDropDown(),
           Divider(),
           _mostrarDatos()
           ],
@@ -137,5 +139,45 @@ class _InputPageState extends State<InputPage>{
         _controllerFecha.text = _fecha;
       });
     }
+  }
+
+  Widget _crearDropDown()
+  {
+    return DropdownButtonFormField
+    (
+      decoration: InputDecoration
+      (
+        border: OutlineInputBorder
+        (
+          borderRadius: BorderRadius.circular(20)
+        ),
+        label: Text('Cosas'),
+        icon: Icon(Icons.cabin),
+      ),
+      hint: Text('Selecciona una cosa'),
+      items: opcionesDrop(),
+      onChanged: (opt)
+      {
+        print(opt);
+      },
+    );
+  }
+
+  List<DropdownMenuItem<String>> opcionesDrop()
+  {
+    List<DropdownMenuItem<String>> lista = [];
+
+    _cosas.forEach((element) 
+    {
+      lista.add
+      (
+        DropdownMenuItem
+        (
+          value: element,
+          child: Text(element),
+        )
+      );
+    });
+    return lista;
   }
 }

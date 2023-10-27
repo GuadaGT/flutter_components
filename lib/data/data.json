@@ -20,6 +20,16 @@
             "ruta": "inputs",
             "icon": "inputs",
             "texto": "inputs"
+        },
+        {
+            "ruta": "modals",
+            "icon": "modals",
+            "texto": "modales"
+        },
+        {
+            "ruta": "pasar",
+            "icon": "pasar",
+            "texto": "Pasar datos entre vistas"
         }
     ]
 }
