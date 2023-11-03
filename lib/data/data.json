@@ -30,6 +30,11 @@
             "ruta": "pasar",
             "icon": "pasar",
             "texto": "Pasar datos entre vistas"
+        },
+        {
+            "ruta": "form",
+            "icon": "form",
+            "texto": "Validacion de formularios"
         }
     ]
 }

@@ -7,6 +7,7 @@ import 'package:flutter_components/src/pages/input_page.dart';
 import 'package:flutter_components/src/pages/pasar_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_components/src/pages/modal_page.dart';
+import 'package:flutter_components/src/pages/form_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         'inputs': (BuildContext context) => InputPage(),
         'modals': (BuildContext context) => ModalPage(),
         'pasar': (BuildContext context) => ScreenPage(),
+        'form':(BuildContext context) => FormPage(),
       
       },
       onGenerateRoute: (RouteSettings setting)

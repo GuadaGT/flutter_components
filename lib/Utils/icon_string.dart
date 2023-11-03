@@ -7,6 +7,7 @@ final _icons = <String, IconData>{
   'inputs': Icons.input,
   'modals': Icons.ad_units_outlined,
   'pasar': Icons.account_tree,
+  'form': Icons.forward_rounded
 };
 
 Icon getIcon(String nombreIcono){
