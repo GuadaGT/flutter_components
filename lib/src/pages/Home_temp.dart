@@ -8,22 +8,28 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Componentes')),
-      body: ListView(children: _crearItems2(),),
+      body: ListView(
+        children: _crearItems2(),
+      ),
     );
   }
 
-  List<Widget> _crearItems(){
+  List<Widget> _crearItems() {
     List<Widget> lista = [];
 
-    for(String opt in opciones){
-      final tempWidget = ListTile(title: Text(opt),);
+    for (String opt in opciones) {
+      final tempWidget = ListTile(
+        title: Text(opt),
+      );
       lista.add(tempWidget);
-      lista.add(Divider(thickness: 1,));
+      lista.add(Divider(
+        thickness: 1,
+      ));
     }
     return lista;
   }
 
-  List<Widget> _crearItems2(){
+  List<Widget> _crearItems2() {
     var widgets = opciones.map((String op) {
       return Column(
         children: [
@@ -38,7 +44,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           )
-      ],
+        ],
       );
     }).toList();
     return widgets;

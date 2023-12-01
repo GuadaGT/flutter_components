@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AlertPage extends StatelessWidget{
+class AlertPage extends StatelessWidget {
   const AlertPage({super.key});
 
   @override
@@ -22,37 +22,30 @@ class AlertPage extends StatelessWidget{
     );
   }
 
-  void _mostrarAlert(BuildContext context)
-  {
+  void _mostrarAlert(BuildContext context) {
     showDialog(
-      context: context, 
-      barrierDismissible: true,
-      builder: (context)
-      {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Text('Titulo del Alert'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
+        context: context,
+        barrierDismissible: true,
+        builder: (context) {
+          return AlertDialog(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            title: Text('Titulo del Alert'),
+            content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Text('Esto es el contenido de la caja a de alerta'),
-              FlutterLogo(size: 100,)
-            ]
-          ),
-          actions: <Widget>[
-            TextButton
-            (
-              onPressed: ()=> Navigator.of(context).pop(), 
-              child: Text('Cancelar')
-            ),
-            TextButton
-            (
-              onPressed: ()=> Navigator.of(context).pop(), 
-              child: Text('Aceptar')
-            )
-          ],
-        );
-      }
-    );
+              FlutterLogo(
+                size: 100,
+              )
+            ]),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text('Cancelar')),
+              TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text('Aceptar'))
+            ],
+          );
+        });
   }
 }

@@ -8,7 +8,6 @@ class FormModal extends StatefulWidget {
 }
 
 class _FormModalState extends State<FormModal> {
-
   GlobalKey<FormState> keyform = GlobalKey();
 
   TextEditingController nameCtrl = TextEditingController();
@@ -31,83 +30,72 @@ class _FormModalState extends State<FormModal> {
     );
   }
 
-  Widget _formUI()
-  {
-    return Column
-    (
-      children:[
+  Widget _formUI() {
+    return Column(
+      children: [
         _formItemDesign(
-          Icons.person,
-          TextFormField(
-            controller: nameCtrl,
-            decoration: InputDecoration(labelText: 'Nombre'),
-            validator: _validateName,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-          )
-        ),
+            Icons.person,
+            TextFormField(
+              controller: nameCtrl,
+              decoration: InputDecoration(labelText: 'Nombre'),
+              validator: _validateName,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+            )),
         _formItemDesign(
-          Icons.email,
-          TextFormField(
-            controller: emailCtrl,
-            decoration: InputDecoration(labelText: 'Email'),
-            validator: _validateEmail,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            keyboardType: TextInputType.emailAddress,
-            maxLength: 32,
-          )
-        ),
+            Icons.email,
+            TextFormField(
+              controller: emailCtrl,
+              decoration: InputDecoration(labelText: 'Email'),
+              validator: _validateEmail,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              keyboardType: TextInputType.emailAddress,
+              maxLength: 32,
+            )),
         _formItemDesign(
-          Icons.perm_phone_msg_rounded,
-          TextFormField(
-            controller: mobileCtrl,
-            decoration: InputDecoration(labelText: 'Teléfono'),
-            validator: _validateMobile,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            keyboardType: TextInputType.phone,
-            maxLength: 9,
-          )
-        ),
+            Icons.perm_phone_msg_rounded,
+            TextFormField(
+              controller: mobileCtrl,
+              decoration: InputDecoration(labelText: 'Teléfono'),
+              validator: _validateMobile,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              keyboardType: TextInputType.phone,
+              maxLength: 9,
+            )),
         _formItemDesign(
-          Icons.lock,
-          TextFormField(
-            controller: passCtrl,
-            obscureText: true,
-            decoration: InputDecoration(labelText: 'Contraseña'),
-          )
-        ),
+            Icons.lock,
+            TextFormField(
+              controller: passCtrl,
+              obscureText: true,
+              decoration: InputDecoration(labelText: 'Contraseña'),
+            )),
         _formItemDesign(
-          Icons.lock,
-          TextFormField(
-            controller: passRepeatCtrl,
-            obscureText: true,
-            decoration: InputDecoration(labelText: 'Repite la contraseña'),
-            validator: _passwordValidator,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-          )
-        ),
-        ElevatedButton(onPressed: ()=> save(), child: Text('Guardar'))
+            Icons.lock,
+            TextFormField(
+              controller: passRepeatCtrl,
+              obscureText: true,
+              decoration: InputDecoration(labelText: 'Repite la contraseña'),
+              validator: _passwordValidator,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+            )),
+        ElevatedButton(onPressed: () => save(), child: Text('Guardar'))
       ],
     );
   }
 
-  save()
-  {
+  save() {
     var valid = keyform.currentState?.validate();
-    if(valid == true)
-    {
-      Map<String, String> datos =
-      {
+    if (valid == true) {
+      Map<String, String> datos = {
         'nombre': nameCtrl.text,
         'email': emailCtrl.text,
         'telefono': mobileCtrl.text,
         'password': passCtrl.text
       };
-      Navigator.pop(context,datos);
+      Navigator.pop(context, datos);
     }
   }
 
-  _formItemDesign(icon,item)
-  {
+  _formItemDesign(icon, item) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 7),
       child: Card(
@@ -119,60 +107,46 @@ class _FormModalState extends State<FormModal> {
     );
   }
 
-  String? _validateName(String? value)
-  {
+  String? _validateName(String? value) {
     String pattern = r'(^[a-zA-Z]*$)';
     RegExp regExp = RegExp(pattern);
 
-    if(value == null || value.isEmpty)
-    {
+    if (value == null || value.isEmpty) {
       return 'El nombre es necesario.';
-    }
-    else if(!regExp.hasMatch(value))
-    {
+    } else if (!regExp.hasMatch(value)) {
       return 'El nombre sólo debe contener letras.';
     }
     return null;
   }
 
-    String? _validateEmail(String? value)
-  {
+  String? _validateEmail(String? value) {
     String pattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
     RegExp regExp = RegExp(pattern);
 
-    if(value == null || value.isEmpty)
-    {
+    if (value == null || value.isEmpty) {
       return 'El email es necesario.';
-    }
-    else if(!regExp.hasMatch(value))
-    {
+    } else if (!regExp.hasMatch(value)) {
       return 'El formato de email es incorrecto.';
     }
 
     return null;
   }
 
-  String? _validateMobile(String? value)
-  {
+  String? _validateMobile(String? value) {
     String pattern = r'(^[0-9]*$)';
     RegExp regExp = RegExp(pattern);
 
-    if(value == null || value.isEmpty)
-    {
+    if (value == null || value.isEmpty) {
       return 'El teléfono es necesario.';
-    }
-    else if(!regExp.hasMatch(value))
-    {
+    } else if (!regExp.hasMatch(value)) {
       return 'El formato del teléfono es incorrecto.';
     }
 
     return null;
   }
 
-  String? _passwordValidator(String? value)
-  {
-    if(value != passCtrl.text)
-    {
+  String? _passwordValidator(String? value) {
+    if (value != passCtrl.text) {
       return 'El valor de la contraseña no coincide';
     }
 

@@ -14,78 +14,55 @@ class _ScreenPageState extends State<ScreenPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-    (
-      appBar: AppBar
-      (
+    return Scaffold(
+      appBar: AppBar(
         title: Text('Pasar datos'),
       ),
-      body: Center
-      (
-        child: Column
-        (
-          children: 
-          [
-            Padding
-            (
+      body: Center(
+        child: Column(
+          children: [
+            Padding(
               padding: const EdgeInsets.all(32),
-              child: TextField
-              (
+              child: TextField(
                 controller: textController,
-                style: const  TextStyle
-                (
+                style: const TextStyle(
                   fontSize: 24,
                   color: Colors.black,
                 ),
               ),
             ),
-            ElevatedButton
-              (
-                child: Text('Enviar'),
-                onPressed: () => _enviarDatos(context),
-              ),
-              ElevatedButton
-              (
-                child: Text('Recibir'),
-                onPressed: () => _recibirDatos(context),
-              ),
-              Text(text)
+            ElevatedButton(
+              child: Text('Enviar'),
+              onPressed: () => _enviarDatos(context),
+            ),
+            ElevatedButton(
+              child: Text('Recibir'),
+              onPressed: () => _recibirDatos(context),
+            ),
+            Text(text)
           ],
         ),
       ),
     );
   }
 
-  void _enviarDatos(BuildContext context) async
-  {
+  void _enviarDatos(BuildContext context) async {
     String textToSend = textController.text;
-    final result = await Navigator.push
-    (
-      context, 
-      MaterialPageRoute
-      (builder: (context)=> SecondPage(texto: textToSend)),
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecondPage(texto: textToSend)),
     );
-    setState(() 
-    {
+    setState(() {
       text = result;
     });
   }
 
-  void _recibirDatos(BuildContext context) async
-  {
-    final result = await Navigator.push
-    (
-      context, 
-      MaterialPageRoute
-      (
-        builder: (context) => SecondPage()
-      )
-    );
+  void _recibirDatos(BuildContext context) async {
+    final result = await Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SecondPage()));
 
-    setState(() 
-    {
+    setState(() {
       text = result;
-    }
-    );
+    });
   }
 }

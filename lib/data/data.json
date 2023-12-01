@@ -35,6 +35,11 @@
             "ruta": "form",
             "icon": "form",
             "texto": "Validacion de formularios"
+        },
+        {
+            "ruta": "http",
+            "icon": "http",
+            "texto": "Peticiones http"
         }
     ]
 }

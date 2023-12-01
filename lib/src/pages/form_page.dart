@@ -17,25 +17,23 @@ class _FormPageState extends State<FormPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Registrarse'),
-    ),body: Center(
-      child: ElevatedButton(
-        child: Text('Registrarse'),
-        onPressed:()=> _registro(context),
       ),
-    ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Registrarse'),
+          onPressed: () => _registro(context),
+        ),
+      ),
     );
   }
 
-  void _registro(BuildContext context)
-  {
+  void _registro(BuildContext context) {
     showCupertinoModalBottomSheet(
-      expand: true,
-      context: context,
-      builder: (context) => FormModal()
-    ).then((value)
-    {
+        expand: true,
+        context: context,
+        builder: (context) => FormModal()).then((value) {
       var datos = value;
-      print (datos);
+      print(datos);
     });
   }
 }

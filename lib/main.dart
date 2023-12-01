@@ -3,6 +3,7 @@ import 'package:flutter_components/src/pages/Home_page.dart';
 import 'package:flutter_components/src/pages/alert_page.dart';
 import 'package:flutter_components/src/pages/avatar_page.dart';
 import 'package:flutter_components/src/pages/card_page.dart';
+import 'package:flutter_components/src/pages/http_page.dart';
 import 'package:flutter_components/src/pages/input_page.dart';
 import 'package:flutter_components/src/pages/pasar_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -17,33 +18,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Componentes App',
-      localizationsDelegates: [
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-      GlobalCupertinoLocalizations.delegate,
-    ],
-  supportedLocales: [
-    Locale('en'), // English
-    Locale('es'), // Spanish
-  ],
-      initialRoute: 'home',
-      routes: <String, WidgetBuilder>{
-        'home': (BuildContext context) => HomePageFinal(),
-        'alert': (BuildContext context) => AlertPage(),
-        'avatar': (BuildContext context) => AvatarPage(),
-        'card': (BuildContext context) => CardPage(),
-        'inputs': (BuildContext context) => InputPage(),
-        'modals': (BuildContext context) => ModalPage(),
-        'pasar': (BuildContext context) => ScreenPage(),
-        'form':(BuildContext context) => FormPage(),
-      
-      },
-      onGenerateRoute: (RouteSettings setting)
-      {
-        return MaterialPageRoute(builder: (context)=> AlertPage());
-      }
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Componentes App',
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en'), // English
+          Locale('es'), // Spanish
+        ],
+        initialRoute: 'home',
+        routes: <String, WidgetBuilder>{
+          'home': (BuildContext context) => HomePageFinal(),
+          'alert': (BuildContext context) => AlertPage(),
+          'avatar': (BuildContext context) => AvatarPage(),
+          'card': (BuildContext context) => CardPage(),
+          'inputs': (BuildContext context) => InputPage(),
+          'modals': (BuildContext context) => ModalPage(),
+          'pasar': (BuildContext context) => ScreenPage(),
+          'form': (BuildContext context) => FormPage(),
+          'http': (BuildContext context) => HttpPage()
+        },
+        onGenerateRoute: (RouteSettings setting) {
+          return MaterialPageRoute(builder: (context) => AlertPage());
+        });
   }
 }
